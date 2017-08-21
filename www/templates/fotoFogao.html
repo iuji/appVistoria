@@ -1,0 +1,64 @@
+<ion-view view-title="Foto do Fogão">
+	<ion-nav-bar ng-controller="navegacaoCtrl" class="bar-positive my-color" padding="true" >
+	  <ion-nav-back-button class="button-clear" ng-click="myGoBackFoto()">
+		<i class="ion-arrow-left-c"></i> Voltar
+	  </ion-nav-back-button>
+	  <h1 class="title" style="text-align:center;">Foto do Fogão</h1>
+	</ion-nav-bar>
+    <ion-content padding="true" class="fundo has-header">
+	<p class="descricao">Tire a foto do seu fogão, certifique-se de que todos os detalhes serão visualizados na imagem.</p>
+       <div ng-controller="fotosCtrl">
+			<input type="hidden" ng-init="folder='fotoFogao'; buscaImagemBd();" ng-value="folder" ng-model="folder">
+			
+			<div ng-if="imagemBd == undefined && imageCamera == undefined ">
+			   <img src="img/fogao.gif" class="fotos" alt=""/>
+			</div>
+
+			<div class="border-none fundo card" ng-if="imagemBd != undefined && imageCamera == undefined ">
+				<label class="fundo cadastro item item-image">
+					<img ng-src="{{imagemBd}}" style="width:100%;margin:auto;display:block">
+				</label>
+			</div>	
+			
+			<div class="border-none fundo card" ng-if="imageCamera != undefined">
+				<label class="fundo cadastro item item-image">
+					<img ng-src="{{imageCamera}}" style="width:100%;margin:auto;display:block">
+				</label>
+			</div>	
+			
+			
+			<div layout="column" class="fabSpeedDialdemoBasicUsage" >
+					<div class="lock-size fundo" layout="row" layout-align="center center">
+						<md-fab-speed-dial class="spaceButton" md-open="demo.isOpen" md-direction="{{demo.selectedDirection}}" ng-class="demo.selectedMode">
+							<md-fab-trigger>
+								<md-button aria-label="menu" class="md-fab md-warn">
+									<md-icon ng-click="onClickC()" md-svg-src="img/camera.svg"></md-icon>
+								</md-button>
+							</md-fab-trigger>
+						</md-fab-speed-dial>
+						
+						
+						<md-fab-speed-dial class="spaceButton" md-open="demo.isOpen" md-direction="{{demo.selectedDirection}}" ng-class="demo.selectedMode">
+							<md-fab-trigger>
+								<md-button aria-label="menu" class="md-fab md-warn">
+									<md-icon ng-click="onClickG()" md-svg-src="img/upload.svg"></md-icon>
+								</md-button>
+							</md-fab-trigger>
+						</md-fab-speed-dial>
+						
+						
+						<md-fab-speed-dial class="spaceButton" ng-if="imageCamera != undefined" md-open="demo.isOpen" md-direction="{{demo.selectedDirection}}" ng-class="demo.selectedMode">
+							<md-fab-trigger>
+								<md-button aria-label="menu" class="md-fab md-warn">
+									<md-icon ng-click="salvarImagens()" md-svg-src="img/salvar.svg"></md-icon>
+								</md-button>
+							</md-fab-trigger>
+						</md-fab-speed-dial>
+					</div>
+			</div>
+			<div ng-controller="checkboxCtrl">
+				<a  ng-click="addIndex()" class="botao button button-block ">Avançar</a>
+			</div>
+		</div>
+    </ion-content>
+</ion-view>

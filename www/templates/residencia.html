@@ -1,0 +1,123 @@
+<ion-view view-title="Residência">
+	<ion-nav-bar ng-controller="navegacaoCtrl" class="bar-positive my-color" padding="true" >
+	  <ion-nav-back-button class="button-clear" ng-click="myGoBack()">
+		<i class="ion-arrow-left-c"></i> Voltar
+	  </ion-nav-back-button>
+	  <h1 class="title" style="text-align:center;">Informações sobre a residência</h1>
+	</ion-nav-bar>
+
+	<ion-content padding="true" class="fundo has-header">
+
+	<form name="enderecoVistForm" ng-controller="residenciaCtrl as residencia" novalidate>
+		<p class="descricao">Preencha os campos abaixo sobre a residência a ser vistoriada.</p>
+
+		<input type="hidden" ng-init="enderecoVist.idVistoria=residencia.dadosUsuario.idVistoria;" ng-value="dadosUsuario.idVistoria" ng-model="enderecoVist.idVistoria">
+
+	   <h3 class="tituloInput">Categoria: <span class="obrigatorio"> *</span></h3>
+		<div layout="column" layout-align="space-between space-between"  class="selectdemoOptionsWithAsyncSearch">
+			<div layout="column" layout-align="space-between space-between">
+				<md-select placeholder="Selecione" ng-required="true" ng-model="enderecoVist.categoria" md-on-open="loadUsers()" style="min-width: 200px;">
+					<md-option ng-value="1">Apartamento</md-option>
+					<md-option ng-value="2">Casa</md-option>
+				</md-select>
+			</div>
+		</div>
+
+		<h3 class="tituloInput">Tipo:<span class="obrigatorio"> *</span></h3>
+		<div layout="column" layout-align="space-between space-between"  class="selectdemoOptionsWithAsyncSearch">
+			<div layout="column" layout-align="space-between space-between">
+				<md-select placeholder="Selecione" ng-required="true" ng-model="enderecoVist.tipo" md-on-open="loadUsers()" style="min-width: 200px;">
+					<md-option ng-value="1">Habitual</md-option>
+					<md-option ng-value="2">Veraneio</md-option>
+				</md-select>
+			</div>
+		</div>
+
+		<h3 class="tituloInput">CEP:<span class="obrigatorio"> *</span></h3>
+		<div class="boxInput">
+			<input type="tel" class="input" ng-required="true" ng-model="enderecoVist.cep_vist" ng-blur="buscaCep()"  mask="99999-999" restrict="reject">
+		</div>
+
+		<h3 class="tituloInput">Endereço:<span class="obrigatorio"> *</span></h3>
+		<div class="boxInput">
+			<input type="text" ng-minlength="1" class="input" ng-model="enderecoVist.logradouro_vist" ng-required="true">
+		</div>
+
+		<h3 class="tituloInput">Número:<span class="obrigatorio"> *</span></h3>
+		<div class="boxInput">
+			<input type="tel" class="input" ng-model="enderecoVist.numero_vist" ng-required="true">
+		</div>
+
+		<h3 class="tituloInput">Complemento:</h3>
+		<div class="boxInput">
+			<input type="text" class="input" ng-model="enderecoVist.complemento_vist" ng-required="false">
+		</div>
+
+		<h3 class="tituloInput">Bairro:<span class="obrigatorio"> *</span></h3>
+		<div class="boxInput">
+			<input type="text" class="input" ng-model="enderecoVist.bairro_vist" ng-required="true">
+		</div>
+
+		<h3 id=""  class="tituloInput">Cidade:<span class="obrigatorio"> *</span></h3>
+		<div class="boxInput">
+			<input type="text" class="input" ng-model="enderecoVist.cidade_vist" ng-required="true">
+		</div>
+
+		<h3 class="tituloInput">Estado:<span class="obrigatorio"> *</span></h3>
+		<div layout="column" layout-align="space-between space-between"  class="selectdemoOptionsWithAsyncSearch">
+			<div layout="column" layout-align="space-between space-between">
+				<md-select placeholder="Selecione" ng-required="true" ng-model="enderecoVist.estado_vist" md-on-open="loadUsers()" style="min-width: 200px;">
+						<md-option ng-value="1">Acre</md-option>
+						<md-option ng-value="2">Alagoas</md-option>
+						<md-option ng-value="3">Amapá</md-option>
+						<md-option ng-value="4">Amazonas</md-option>
+						<md-option ng-value="5">Bahia</md-option>
+						<md-option ng-value="6">Ceará</md-option>
+						<md-option ng-value="7">Distrito Federal</md-option>
+						<md-option ng-value="8">Espírito Santo</md-option>
+						<md-option ng-value="9">Goiás</md-option>
+						<md-option ng-value="10">Maranhão</md-option>
+						<md-option ng-value="11">Mato Grosso</md-option>
+						<md-option ng-value="12">Mato Grosso do Sul</md-option>
+						<md-option ng-value="13">Minas Gerais</md-option>
+						<md-option ng-value="14">Pará</md-option>
+						<md-option ng-value="15">Paraíba</md-option>
+						<md-option ng-value="16">Paraná</md-option>
+						<md-option ng-value="17">Pernambuco</md-option>
+						<md-option ng-value="18">Piauí</md-option>
+						<md-option ng-value="19">Rio de Janeiro</md-option>
+						<md-option ng-value="20">Rio Grande do Norte</md-option>
+						<md-option ng-value="21">Rio Grande do Sul</md-option>
+						<md-option ng-value="22">Rondônia</md-option>
+						<md-option ng-value="23">Roraima</md-option>
+						<md-option ng-value="24">Santa Catarina</md-option>
+						<md-option ng-value="25">São Paulo</md-option>
+						<md-option ng-value="26">Sergipe</md-option>
+						<md-option ng-value="27">Tocantins</md-option>
+				</md-select>
+			</div>
+		</div>
+
+
+
+
+		<div layout="column" ng-cloak="" class="fabSpeedDialdemoBasicUsage" >
+			<div class="lock-size" layout="row" layout-align="space-between space-between">
+				<div class="lock-size fundo" layout="row" layout-align="space-between space-between">
+					<md-fab-speed-dial md-open="demo.isOpen"  md-direction="{{demo.selectedDirection}}" ng-class="demo.selectedMode" >
+						<md-fab-trigger>
+							<md-button  ng-click="insertEnderecoVist()" aria-label="menu" class="md-fab md-warn">
+
+									<a ><md-icon md-svg-src="img/salvar.svg">
+
+									</md-icon></a>
+
+							</md-button>
+						</md-fab-trigger>
+					</md-fab-speed-dial>
+				</div>
+			</div>
+		</div>
+	</form>
+	</ion-content>
+</ion-view>

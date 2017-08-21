@@ -1,0 +1,55 @@
+<ion-view view-title="Validando localização">	
+	<ion-nav-bar ng-controller="navegacaoCtrl" class="bar-positive my-color" padding="true" >
+	  <ion-nav-back-button class="button-clear" ng-click="myGoBack()">
+		<i class="ion-arrow-left-c"></i> Voltar
+	  </ion-nav-back-button>
+	  <h1 class="title" style="text-align:center;">Validando localização</h1>
+	</ion-nav-bar>
+	
+	<ion-content padding="true" class="fundo has-header">
+	<div  ng-controller="mapCtrl">
+<!-- 		<p class="descricao">Para que a vistoria seja realizada é preciso que você esteja na residência a ser vistoriada. Sua localização precisa ser captada, ligue seu GPS.</p>
+		 -->
+		<p class="descricao">Por favor, habilite sua localização.</p>
+	   
+		<!-- <ion-pane>
+			<ion-header-bar class="bar-stable">
+				<h1 class="title">Localização atual</h1>
+			</ion-header-bar> -->
+			<ion-content>
+				<div id="map" data-tap-disabled="true"></div>
+			</ion-content>
+		<!-- </ion-pane> -->
+	
+
+		<div class="buttonMap">
+		<div layout="column" class="fabSpeedDialdemoBasicUsage" >
+			<div class="lock-size" layout="row" layout-align="center end">
+			<!-- ng-if="block == 2" -->
+				<md-fab-speed-dial class="spaceButton" md-open="demo.isOpen"  md-direction="{{demo.selectedDirection}}" ng-class="demo.selectedMode">
+						<md-fab-trigger>
+							<md-button aria-label="menu" class="md-fab md-warn">
+								<a ng-click="salvarLocalizacao()">
+									<md-icon md-svg-src="img/next1.svg"></md-icon>
+								</a>
+							</md-button>
+						</md-fab-trigger>
+					</md-fab-speed-dial>
+					
+					<md-fab-speed-dial class="spaceButton" md-open="demo.isOpen" md-direction="{{demo.selectedDirection}}" ng-class="demo.selectedMode">
+						<md-fab-trigger>
+							<md-button aria-label="menu" class="md-fab md-warn">
+								<a ng-click="reload()">
+									<md-icon md-svg-src="img/reload.svg"></md-icon>
+								</a>
+							</md-button>
+						</md-fab-trigger>
+					</md-fab-speed-dial>	
+					
+			</div>
+		</div>
+		</div>
+		
+	</div>
+	</ion-content>
+</ion-view>

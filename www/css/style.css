@@ -1,0 +1,122 @@
+
+/* GERAL */
+.fundo { background-color: #eee !important;}
+.border-none { border: none; }
+.botao { background-color: #104E8B; color: #FFF; font-family: Calibri; font-size: 18px; width: 100%; }
+.botao:hover { color: #FFF !important; background-color: #104E8B !important; display: none; }
+.tituloInput{ font-size: 16px; text-align: justify; color: #104E8B; font-family: Calibri; margin-bottom: 0; padding-left: 2px;}
+.input { padding-left: 10px; width: 100%; background-color: #eee;}
+.boxInput { border-bottom: 1px solid #ccc; margin: 0 0 30px; }
+.boxInput:hover { border-bottom: 2px solid #000066; margin: 0 0 30px; background-color: #eee; } 
+.my-color{ background-color: #104E8B !important; }
+.descricao { padding: 10px 0 10px; font-size: 15px; text-align: center; color: #104E8B; font-family: 'Raleway', sans-serif; font-weight: bold; }
+
+
+/* CSS DOS BOTÕES REDONDOS */
+.fabSpeedDialdemoBasicUsage .text-capitalize { text-transform: capitalize; }
+.md-fab { background-color: #104E8B !important;  }
+.md-fab:hover { background-color: #104E8B !important;}
+.fabSpeedDialdemoBasicUsage .lock-size { margin-left: auto; margin-right: auto; }
+
+
+/* LOGIN */
+.inputLogin { margin: 0 auto; width: 100%; padding-left: 10px !important; z-index: 1; }
+#centralizar { padding: 0 15px; }
+.inputLogin:hover { border: 2px solid #336699; border-radius: 4px; }
+.msgErr { text-align:center; color:red; }
+.img { background: url('../img/city5.png') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; background-size: cover; opacity: 0.8; }
+.descricaoLogin { padding: 10px 0 10px; font-size: 15px; text-align: center; color: #fff; font-family: 'Raleway', sans-serif; font-weight: bold; }
+.labelButton { padding: 0; background-color: #104E8B; height: 50px; }
+.buttonLogin { bottom: 10px;  background-color: #104E8B; color: #FFF; font-family: Calibri; font-size: 18px; width: 100%; z-index: 1 !important; }
+.buttonLogin:hover { color: #FFF !important; background-color: #104E8B !important; display: none; }
+
+
+/* MENU */
+.icone { color: #104E8B !important; }
+#map { height: 100%; width: 100%; margin-bottom: 0;}
+
+
+
+/* SEGURADO */
+ .inputBloq  { border-bottom: 2px solid #104E8B !important; } 
+
+
+/* RESIDÊNCIA */
+.obrigatorio { color: red; }
+
+
+/* GPS */
+.buttonMap { bottom: 20px; position: absolute; width: 95%; margin: 0; }
+
+
+
+/* FOTOS */
+.fotos { position: relative; margin: 0 22%; height: 200px; width: 200px; }
+.spaceButton { padding: 0 5px; }
+
+
+
+/* APARTAMENTO */
+.checkbox { padding: 5px 20px; font-family: Calibri;font-size: 16px; display: inline; }
+.check { width: 50px; }
+
+
+
+/* OBRIGADO */
+.protocolo { background-color: #104E8B; color: #fff; width: 100%; text-align: center;font-size: 19px; font-weight: bold; padding: 30px 0 30px 0; margin: 10% 0; }
+.tks { font-size: 35px; text-align: center; color: #104E8B; font-family: Calibri; margin-bottom: 0; padding: 15% 0; }
+.tituloMenu { font-size: 18px; text-align: justify; color: #104E8B; font-family: Calibri; }		
+.titulo { font-size: 19px; text-align: justify; color: #104E8B; font-family: Calibri; padding: 25px 0 5px 10px; }
+.nomePerfil { font-size: 16px;padding: 0 0 0 10px; }
+.perfil { font-weight: bold;}
+.textArea { margin: 10px 0 0; width: 100%;border: 1px solid #ccc; border-radius: 4px;	}
+
+
+
+.has-error .help-block,.has-error .control-label,.has-error .radio,.has-error .checkbox,.has-error .radio-inline,.has-error .checkbox-inline{
+	color:#a94442
+	}
+
+.has-error .form-control{
+	border-color:#a94442;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);box-shadow:inset 0 1px 1px rgba(0,0,0,0.075)
+	}
+
+.has-error .form-control:focus{
+	border-color:#843534;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 6px #ce8483;box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 6px #ce8483
+	}
+
+.has-error .input-group-addon{
+	color:#a94442;background-color:#f2dede;border-color:#a94442
+	}
+
+.has-success .help-block,.has-success .control-label,.has-success .radio,.has-success .checkbox,.has-success .radio-inline,.has-success .checkbox-inline{
+	color:#3c763d
+	}
+	
+.has-success .form-control{
+	border-color:#3c763d;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);box-shadow:inset 0 1px 1px rgba(0,0,0,0.075)
+	}
+	
+.has-success .form-control:focus{
+	border-color:#2b542c;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 6px #67b168;box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 6px #67b168
+	}
+	
+.has-success .input-group-addon{
+	color:#3c763d;background-color:#dff0d8;border-color:#3c763d
+	}
+	
+.form-control-static{
+	margin-bottom:0
+	}
+	
+.help-block{
+	display:block;margin-top:5px;margin-bottom:10px;color:#737373
+	}
+	
+@media(
+	min-width:768px
+	)
+	{
+	.form-inline .form-group{
+	display:inline-block;margin-bottom:0;vertical-align:middle
+	}

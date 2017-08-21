@@ -1,0 +1,31 @@
+<ion-modal-view >
+	<ion-header-bar class="bar-positive my-color" padding="false" >
+		<h1 class="title" style="text-align:center;">Identificação</h1>
+	</ion-header-bar>
+	<ion-content class="img fundo" id="centralizar">
+		<p class="descricaoLogin">Insira o seu CPF e o número da vistoria, este número deverá ser fornecido pelo seu corretor.</p>
+		
+		<div class="spacer" style="height: 10%;"></div>
+		<form name="userForm"  ng-controller="identificacaoCtrl" novalidate>
+			<div id="indexInputs">	
+				<div ng-class="{ 'has-error' : userForm.cpf.$invalid && !userForm.cpf.$pristine }">
+					<input placeholder=" CPF" type="tel" class="inputLogin form-control" restrict="reject" ng-model="user.cpf" ng-required="true" name="cpf" mask="999.999.999-99" ng-model="cpf" ng-click="validaCPF()" ng-minlength="11">
+					<p ng-show="userForm.cpf.$invalid && !userForm.cpf.$pristine && userForm.cpf.$error.cpfValido" class="help-block msgErr"></p>
+				</div>
+				<div class="spacer" style="height: 5px; "></div>
+				<div ng-class="{ 'has-error' : userForm.idVistoria.$invalid && !userForm.idVistoria.$pristine }">
+					<input type="number" placeholder=" Número da vistoria" restrict="reject" class="inputLogin form-control" ng-model="user.idVistoria" ng-required="true" ng-minlength="1">
+				</div>
+			</div>	
+				<div class="spacer" style="height: 20px; "></div>
+			<div id="indexButton">	
+				<label class="labelButton border-none item">
+					<button ng-click="submitForm()"  class="buttonLogin button button-block" ng-disabled="userForm.$invalid">Entrar</button>
+				</label>
+			</div>
+		</form>
+
+
+	</ion-content>
+</ion-modal-view>
+	

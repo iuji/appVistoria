@@ -1,0 +1,124 @@
+<ion-view view-title="Apartamento">
+	<ion-nav-bar ng-controller="navegacaoCtrl" class="bar-positive my-color" padding="true" >
+	  <ion-nav-back-button class="button-clear" ng-click="myGoBack()">
+		<i class="ion-arrow-left-c"></i> Voltar
+	  </ion-nav-back-button>
+	  <h1 class="title" style="text-align:center;">Informações sobre a residência</h1>
+	</ion-nav-bar>
+	<ion-content padding="true" class="fundo has-header">
+	<form name="itensVistForm" ng-controller="alteraItensCtrl" novalidate>	
+	
+		<p class="descricao">Selecione todos os itens existentes em seu apartamento.</p>
+
+		<input type="hidden" ng-init="itens.idVistoria=dadosUsuario.idVistoria;" ng-value="dadosUsuario.idVistoria" ng-model="itens.idVistoria">
+		
+		<ion-checkbox ng-init="itens.chk_camera = '2'" ng-model="itens.chk_camera" ng-true-value="1" ng-false-value="2" class="fundo border-none">Câmeras de segurança</ion-checkbox>
+		<ion-checkbox ng-init="itens.chk_porteiro = '2'" ng-model="itens.chk_porteiro" ng-true-value="1" ng-false-value="2" class="fundo border-none">Porteiro 24 horas</ion-checkbox>
+		<ion-checkbox ng-init="itens.chk_paraRaio = '2'" ng-model="itens.chk_paraRaio" ng-true-value="1" ng-false-value="2" class="fundo border-none">Para-raio</ion-checkbox>
+		<ion-checkbox ng-init="itens.chk_geladeira = '2'" ng-model="itens.chk_geladeira" ng-true-value="1" ng-false-value="2" class="fundo border-none">Geladeira</ion-checkbox>
+		<ion-checkbox ng-init="itens.chk_fogao = '2'" ng-model="itens.chk_fogao" ng-true-value="1" ng-false-value="2" class="fundo border-none">Fogão</ion-checkbox>
+		<ion-checkbox ng-init="itens.chk_microondas = '2'" ng-model="itens.chk_microondas" ng-true-value="1" ng-false-value="2" class="fundo border-none">Microondas</ion-checkbox>
+		<ion-checkbox ng-init="itens.chk_maquinaLavar = '2'" ng-model="itens.chk_maquinaLavar" ng-true-value="1" ng-false-value="2" class="fundo border-none">Máquina de lavar roupa</ion-checkbox>
+		<ion-checkbox ng-init="itens.chk_secadoura = '2'" ng-model="itens.chk_secadoura" ng-true-value="1" ng-false-value="2" class="fundo border-none">Secadoura</ion-checkbox>
+		<ion-checkbox ng-init="itens.chk_computador = '2'" ng-model="itens.chk_computador" ng-true-value="1" ng-false-value="2" class="fundo border-none">Computador</ion-checkbox>
+		<ion-checkbox ng-init="itens.chk_notebook = '2'" ng-model="itens.chk_notebook" ng-true-value="1" ng-false-value="2" class="fundo border-none">Notebook</ion-checkbox>
+		<ion-checkbox ng-init="itens.chk_filmadora = '2'" ng-model="itens.chk_filmadora" ng-true-value="1" ng-false-value="2" class="fundo border-none">Filmadora</ion-checkbox>
+		<ion-checkbox ng-init="itens.chk_cameraFotog = '2'" ng-model="itens.chk_cameraFotog" ng-true-value="1" ng-false-value="2" class="fundo border-none">Câmera Fotográfica</ion-checkbox>
+		<ion-checkbox ng-init="itens.chk_televisao = '2'" ng-model="itens.chk_televisao" ng-true-value="1" ng-false-value="2" class="fundo border-none">Televisão</ion-checkbox>
+		<ion-checkbox ng-init="itens.chk_homeTheater = '2'" ng-model="itens.chk_homeTheater" ng-true-value="1" ng-false-value="2" class="fundo border-none">Home theater</ion-checkbox>
+		<ion-checkbox ng-init="itens.chk_arCondic = '2'" ng-model="itens.chk_arCondic" ng-true-value="1" ng-false-value="2" class="fundo border-none">Ar condicionado</ion-checkbox>
+		<ion-checkbox ng-init="itens.chk_umidificador = '2'" ng-model="itens.chk_umidificador" ng-true-value="1" ng-false-value="2" class="fundo border-none">Umidificador</ion-checkbox>
+		<ion-checkbox ng-init="itens.chk_aquecedor = '2'" ng-model="itens.chk_aquecedor" ng-true-value="1" ng-false-value="2" class="fundo border-none">Aquecedor</ion-checkbox>
+
+		<h3 class="tituloInput">Quantos andares o seu prédio possui?<span class="obrigatorio"> *</span></h3>
+		<div class="boxInput">
+			<input type="number" ng-required="true" class="input" ng-model="itens.text_qtdAndares">
+		</div>
+		
+		<h3 class="tituloInput">Em qual andar você mora?<span class="obrigatorio"> *</span></h3>
+		<div class="boxInput">
+			<input type="number" ng-required="true" class="input" ng-model="itens.text_andarReside">
+		</div>
+		
+		
+		<h3 class="tituloInput">A eneria elétrica é individual?<span class="obrigatorio"> *</span></h3>
+		<div layout="column" layout-align="space-between space-between"  class="selectdemoOptionsWithAsyncSearch">
+			<div layout="column" layout-align="space-between space-between">
+				<md-select placeholder="Selecione sim / não" ng-required="true" ng-model="itens.cmb_energia" md-on-open="loadUsers()" style="min-width: 200px;">
+					<md-option ng-value="1">Sim</md-option>
+					<md-option ng-value="2">Não</md-option>
+				</md-select>	
+			</div>
+		</div>
+			
+		<h3 class="tituloInput">O gás é encanado?<span class="obrigatorio"> *</span></h3>
+		<div layout="column" layout-align="space-between space-between"  class="selectdemoOptionsWithAsyncSearch">
+			<div layout="column" layout-align="space-between space-between">
+				<md-select placeholder="Selecione sim / não" ng-required="true" ng-model="itens.cmb_gas" md-on-open="loadUsers()" style="min-width: 200px;">
+					<md-option ng-value="1">Sim</md-option>
+					<md-option ng-value="2">Não</md-option>
+				</md-select>	
+			</div>
+		</div> 
+			
+			
+		<h3 class="tituloInput">A água é individual?<span class="obrigatorio"> *</span></h3>
+		<div layout="column" layout-align="space-between space-between"  class="selectdemoOptionsWithAsyncSearch">
+			<div layout="column" layout-align="space-between space-between">
+				<md-select placeholder="Selecione sim / não" ng-required="true" ng-model="itens.cmb_agua" md-on-open="loadUsers()" style="min-width: 200px;">
+					<md-option ng-value="1">Sim</md-option>
+					<md-option ng-value="2">Não</md-option>
+				</md-select>	
+			</div>
+		</div>
+			
+		<h3 class="tituloInput">A fiação tem mais de 10 anos?<span class="obrigatorio"> *</span></h3>
+		<div layout="column" layout-align="space-between space-between"  class="selectdemoOptionsWithAsyncSearch">
+			<div layout="column" layout-align="space-between space-between">
+				<md-select placeholder="Selecione sim / não" ng-required="true" ng-model="itens.cmb_fiacao" md-on-open="loadUsers()" style="min-width: 200px;">
+					<md-option ng-value="1">Sim</md-option>
+					<md-option ng-value="2">Não</md-option>
+				</md-select>	
+			</div>
+		</div> 
+			
+		<h3 class="tituloInput">As janelas possuem grade?<span class="obrigatorio"> *</span></h3>
+		<div layout="column" layout-align="space-between space-between"  class="selectdemoOptionsWithAsyncSearch">
+			<div layout="column" layout-align="space-between space-between">
+				<md-select placeholder="Selecione sim / não" ng-required="true" ng-model="itens.cmb_janela" md-on-open="loadUsers()" style="min-width: 200px;">
+					<md-option ng-value="1">Sim</md-option>
+					<md-option ng-value="2">Não</md-option>
+				</md-select>	
+			</div>
+		</div> 
+	
+		
+		<h3 class="tituloInput">Possui extintor?<span class="obrigatorio"> *</span></h3>
+		<div layout="column" layout-align="space-between space-between"  class="selectdemoOptionsWithAsyncSearch">
+			<div layout="column" layout-align="space-between space-between">
+				<md-select placeholder="Selecione sim / não" ng-required="true" ng-model="itens.cmb_extintor" md-on-open="loadUsers()" style="min-width: 200px;">
+					<md-option ng-value="1">Sim</md-option>
+					<md-option ng-value="2">Não</md-option>
+				</md-select>	
+			</div>
+		</div>
+	
+		<div layout="column" ng-cloak="" class="fabSpeedDialdemoBasicUsage" >
+			<div class="lock-size" layout="row" layout-align="space-between space-between">
+				<div class="lock-size fundo" layout="row" layout-align="space-between space-between">
+					<md-fab-speed-dial md-open="demo.isOpen" md-direction="{{demo.selectedDirection}}" ng-class="demo.selectedMode">
+						<md-fab-trigger>
+							<md-button aria-label="menu" class="md-fab md-warn">
+								<a ng-click="alteraItens()"><md-icon md-svg-src="img/salvar.svg"></md-icon></a>
+							</md-button>
+						</md-fab-trigger>
+					</md-fab-speed-dial>
+				</div>
+			</div>
+		</div>
+		
+		
+	</form>	
+
+	</ion-content>
+</ion-view>

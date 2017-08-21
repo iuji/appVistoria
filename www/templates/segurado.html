@@ -1,0 +1,84 @@
+<ion-view view-title="Confirmação dos Dados">
+	<ion-nav-bar ng-controller="navegacaoCtrl" class="bar-positive my-color" padding="true" >
+	  <ion-nav-back-button class="button-clear" ng-click="myGoBack()">
+		<i class="ion-arrow-left-c"></i> Voltar
+	  </ion-nav-back-button>
+	  <h1 class="title" style="text-align:center;">Confirmação dos Dados</h1>
+	</ion-nav-bar>
+
+	<ion-content padding="true" class="fundo has-header">
+		<form name="seguradoForm" ng-controller="seguradoCtrl">
+			
+			<p	class="descricao">Confirme seus dados pessoais.</p>
+		   
+			<input type="hidden" ng-init="user.idUsuario=dadosUsuario.idUsuario;" ng-value="dadosUsuario.idUsuario" ng-model="user.idUsuario">
+			
+			<h3 class="tituloInput">Nome:</h3>
+			<div class="boxInputBloq">
+				<input type="text" class="input"   readonly  ng-value="dadosUsuario.nomeUsuario" ng-model="user.nomeUsuario">
+			</div>
+			
+			<h3 class="tituloInput">CPF:</h3>
+			<div class="boxInputBloq">	
+				<input class="input" type="text"   readonly ng-value="dadosUsuario.cpf"  ng-model="user.cpf">
+			</div>
+			
+			<h3 class="tituloInput">Data de Nascimento:</h3>
+			<div class="boxInputBloq">		
+				<input type="date" class="input" ng-value="dadosUsuario.dtNascimento" readonly ng-model="user.dtNascimento">
+			</div>
+			
+			<h3 class="tituloInput">RG:</h3>
+			<div class="boxInputBloq">	
+				<input type="text" class="input" ng-value="dadosUsuario.rg"   readonly ng-model="user.rg" >
+			</div>
+			
+			<h3 class="tituloInput">Orgão Emissor:</h3>
+			<div class="boxInputBloq">	
+				<input type="text" class="input" ng-value="dadosUsuario.orgaoEmissor"   readonly ng-model="user.orgaoEmissor">
+			</div>
+			
+			<h3 class="tituloInput">Endereço:</h3>
+			<div class="boxInputBloq">		
+				<input type="text" class="input" readonly ng-value="dadosUsuario.logradouro_user + ' ' + dadosUsuario.numero_user  + ', ' + dadosUsuario.bairro_user  + ', ' + dadosUsuario.cidade_user  + ' - ' + dadosUsuario.estado_user "  >
+			</div>
+			
+			<h3 class="tituloInput">Telefone Residencial:</h3>
+			<div class="boxInputBloq inputBloq">	
+				<input type="tel" class="input" ng-required="true"  ng-readonly="block=='readonly'" restrict="reject" mask="99 9999-9999" ng-minlength="12" ng-init="user.foneResidencial=dadosUsuario.foneResidencial;" ng-model="user.foneResidencial">
+			</div>
+			
+			<h3 class="tituloInput">Telefone Celular:</h3>
+			<div ng-class="{ 'has-error' : seguradoForm.foneCelular.$invalid && !seguradoForm.foneCelular.$pristine }">
+				<div class="boxInputBloq inputBloq">		
+					<input type="tel" class="input" ng-required="true" ng-readonly="block=='readonly'" restrict="reject" mask="99 9?9999-9999" ng-minlength="10" ng-init="user.foneCelular=dadosUsuario.foneCelular;" ng-model="user.foneCelular">
+				</div>
+				<p ng-show="seguradoForm.foneCelular.$invalid && !seguradoForm.foneCelular.$pristine" class="help-block">Informe um telefone válido.</p>
+			</div>
+			
+			<h3 class="tituloInput">E-mail:</h3>
+			<div ng-class="{ 'has-error' : seguradoForm.email.$invalid && !seguradoForm.email.$pristine }">
+				<div class="boxInputBloq inputBloq">
+						<input type="email" name="email" class="input" ng-value="dadosUsuario.email" ng-readonly="block=='readonly'" ng-init="user.email=dadosUsuario.email;" ng-required="true" ng-model="user.email"> 
+				</div>
+				<p ng-show="seguradoForm.email.$invalid && !seguradoForm.email.$pristine" class="help-block">Informe um e-mail válido.</p>
+			</div>
+			<div layout="column" class="fabSpeedDialdemoBasicUsage" >
+				<div class="lock-size" layout="row" layout-align="center center">
+					<div class="lock-size fundo" layout="row" layout-align="center center">
+						<md-fab-speed-dial md-open="demo.isOpen" ng-if="block=='readonly'" md-direction="{{demo.selectedDirection}}" ng-class="demo.selectedMode">
+							<md-fab-trigger>
+								<md-button aria-label="menu" class="md-fab md-warn botaoEditar">
+									<md-icon md-svg-src="img/editar.svg"  ng-click="alteraReadonly()" ></md-icon>
+								</md-button>
+							</md-fab-trigger>
+						</md-fab-speed-dial>
+					</div>
+				</div>
+			</div>
+			
+			
+			<a ng-click="updateDadosUsuario()" class="botao button button-block ">Confirmar</a>
+		</form>	
+	</ion-content>
+</ion-view>
