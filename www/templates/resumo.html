@@ -1,40 +1,40 @@
 <ion-view view-title="Resumo da Vistoria">
 	<ion-nav-bar  ng-controller="navegacaoCtrl"  class="bar-positive my-color" padding="true" >
-	  
+
 	  <h1 class="title" style="text-align:center;">Resumo da Vistoria</h1>
 	</ion-nav-bar>
     <ion-content padding="true" class="fundo has-header">
-	<div ng-controller="resumoCtrl">	
+	<div ng-controller="resumoCtrl">
+<!--
+	<input type="hidden" ng-init="user.idUsuario=dadosUsuario.idUsuario;" ng-value="dadosUsuario.idUsuario" ng-model="user.idUsuario"> -->
 
-	<input type="hidden" ng-init="user.idUsuario=dadosUsuario.idUsuario;" ng-value="dadosUsuario.idUsuario" ng-model="user.idUsuario">
-	
 		<h3 class="tituloInput">Nome Completo:</h3>
 		<div class="boxInputBloq">
 			<p class="input" ng-value="dadosUsuario.nomeUsuario" ng-model="user.nomeUsuario">{{dadosUsuario.nomeUsuario}} </p>
 		</div>
-			
+
 		<h3 class="tituloInput">CPF:</h3>
-		<div class="boxInputBloq">	
+		<div class="boxInputBloq">
 			<p class="input" ng-value="dadosUsuario.cpf"  ng-model="user.cpf">{{dadosUsuario.cpf}}</p>
 		</div>
-		
+
 		<h3 class="tituloInput">E-mail:</h3>
 		<div class="boxInputBloq">
-			<p class="input" ng-value="dadosUsuario.email" ng-model="user.email">{{dadosUsuario.email}}</p> 
+			<p class="input" ng-value="dadosUsuario.email" ng-model="user.email">{{dadosUsuario.email}}</p>
 		</div>
-			
+
 		<h3 class="tituloInput">Telefone Residencial:</h3>
-		<div class="boxInputBloq">	
+		<div class="boxInputBloq">
 				<p class="input" ng-value="dadosUsuario.email" ng-model="user.foneResidencial">{{dadosUsuario.foneResidencial}}</p>
 		</div>
-			
+
 		<h3 class="tituloInput">Telefone Celular:</h3>
-		<div class="boxInputBloq">		
+		<div class="boxInputBloq">
 			<p class="input" ng-value="dadosUsuario.email" ng-model="user.foneCelular">{{dadosUsuario.foneCelular}}</p>
 		</div>
-				
-	
-			
+
+
+
         <a href="#/obrigado" ng-click="updateVistoria()" class="botao button button-block">Enviar</a>
     </div>
 	</ion-content>

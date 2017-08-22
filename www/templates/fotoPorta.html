@@ -8,9 +8,9 @@
     <ion-content padding="true" class="fundo has-header">
 	<p class="descricao">Tire a foto da porta de seu apartamento, certifique-se de que todos os detalhes serão visualizados na imagem.</p>
       <div ng-controller="fotosCtrl">
-			<input type="hidden" ng-init="folder='fotoPorta'; buscaImagemBd();" ng-value="folder" ng-model="folder">
-			
-			
+			<input type="hidden" ng-init="buscaImagemBd();" ng-value="folder" ng-model="folder">
+
+
 			<div ng-if="imagemBd == undefined && imageCamera == undefined ">
 			   <img src="img/porta.gif" class="fotos" alt=""/>
 			</div>
@@ -19,15 +19,15 @@
 				<label class="fundo cadastro item item-image">
 					<img ng-src="{{imagemBd}}" style="width:100%;margin:auto;display:block">
 				</label>
-			</div>	
-			
+			</div>
+
 			<div class="border-none fundo card" ng-if="imageCamera != undefined">
 				<label class="fundo cadastro item item-image">
 					<img ng-src="{{imageCamera}}" style="width:100%;margin:auto;display:block">
 				</label>
-			</div>	
-			
-			
+			</div>
+
+
 			<div layout="column" class="fabSpeedDialdemoBasicUsage" >
 					<div class="lock-size fundo" layout="row" layout-align="center center">
 						<md-fab-speed-dial class="spaceButton" md-open="demo.isOpen" md-direction="{{demo.selectedDirection}}" ng-class="demo.selectedMode">
@@ -37,8 +37,8 @@
 								</md-button>
 							</md-fab-trigger>
 						</md-fab-speed-dial>
-						
-						
+
+
 						<md-fab-speed-dial class="spaceButton" md-open="demo.isOpen" md-direction="{{demo.selectedDirection}}" ng-class="demo.selectedMode">
 							<md-fab-trigger>
 								<md-button aria-label="menu" class="md-fab md-warn">
@@ -46,8 +46,8 @@
 								</md-button>
 							</md-fab-trigger>
 						</md-fab-speed-dial>
-						
-						
+
+
 						<md-fab-speed-dial class="spaceButton" ng-if="imageCamera != undefined" md-open="demo.isOpen" md-direction="{{demo.selectedDirection}}" ng-class="demo.selectedMode">
 							<md-fab-trigger>
 								<md-button aria-label="menu" class="md-fab md-warn">
@@ -61,6 +61,6 @@
 				<a  ng-click="addIndex()" class="botao button button-block ">Avançar</a>
 			</div>
 		</div>
-       
+
     </ion-content>
 </ion-view>
